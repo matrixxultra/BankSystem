@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Don;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class EmployerController extends Controller
 {
@@ -61,7 +63,7 @@ class EmployerController extends Controller
             "password"=>"nullable",
             "solde"=>"required"
         ]);
-        
+
         Client::where("id",$id)->update($validatedData);
         return redirect()->back();
     }
@@ -74,5 +76,13 @@ class EmployerController extends Controller
         $client = Client::findOrFail($id);
         $client->delete();
         return redirect()->back();
+    }
+    public function alldons(){
+        $dons = Don::all();
+        return view("employers.dons",compact("dons"));
+    }
+    public function donclients(String $id){
+       $don = Don::findOrFail($id);
+       return view("employers.don_clients",compact("don")) ;
     }
 }

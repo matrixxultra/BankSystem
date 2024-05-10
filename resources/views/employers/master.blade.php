@@ -11,6 +11,7 @@
 <center>
     <div class="mt-5">
         <a class="btn btn-info" href="{{route("clients.index")}}">Tous Les Clients</a>
+        <a class="btn btn-secondary" href="/clients/dons">All Dons</a>
         <form class="mt-2"  action="/deconnect" method="post">
             @csrf
             <button class="btn btn-danger">LogOut</button>

@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 Route::post("/login",[ClientController::class,"verifier"])->middleware("verifier");
 Route::post("/deconnect" ,[ClientController::class,"deconnect"]);
+Route::get("/clients/dons",[EmployerController::class , "alldons"]);
+Route::get("/clients/dons/{id}",[EmployerController::class , "donclients"]);
 Route::resource("/clients",EmployerController::class);
 
 Route::get("/virements",[ClientController::class , "index"]);
